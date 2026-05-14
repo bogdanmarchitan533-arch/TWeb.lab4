@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ChirieAuto — Închirieri Auto Moldova</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .hero {
+      background: var(--dark);
+      min-height: 88vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(230,57,70,0.08) 0%, transparent 60%);
+    }
+    .hero-text {
+      padding: 80px 60px 80px 80px;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(230,57,70,0.15);
+      color: var(--red);
+      border: 1px solid rgba(230,57,70,0.3);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+    }
+    .hero-text h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 5vw, 5.5rem);
+      color: white;
+      line-height: 0.95;
+      margin-bottom: 24px;
+      letter-spacing: 2px;
+    }
+    .hero-text h2 span { color: var(--red); }
+    .hero-text p {
+      color: #999;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 40px;
+      max-width: 420px;
+    }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero-image {
+      position: relative;
+      height: 100%;
+      min-height: 88vh;
+      overflow: hidden;
+    }
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: 0.7;
+    }
+    .hero-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, var(--dark) 0%, transparent 40%);
+    }
+    .stats-bar {
+      background: var(--mid);
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .stat {
+      padding: 28px 48px;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.08);
+      flex: 1;
+      min-width: 140px;
+    }
+    .stat:last-child { border-right: none; }
+    .stat h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.2rem;
+      color: var(--red);
+      letter-spacing: 1px;
+    }
+    .stat p { font-size: 0.82rem; color: #ccc; margin-top: 2px; font-weight: 500; letter-spacing: 0.5px; }
+    .steps-teaser {
+      background: var(--dark);
+      padding: 70px 60px;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .steps-teaser h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3rem;
+      color: white;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+    .steps-teaser p { color: #aaa; margin-bottom: 50px; }
+    .steps-row {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      max-width: 900px;
+      margin: 0 auto 40px;
+    }
+    .step-mini { text-align: center; color: white; flex: 1; min-width: 150px; }
+    .step-mini .step-icon { font-size: 2.5rem; margin-bottom: 10px; }
+    .step-mini strong { color: var(--red); display: block; margin-bottom: 6px; }
+    .step-mini p { color: #aaa; font-size: 0.85rem; }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-image { display: none; }
+      .hero-text { padding: 60px 30px; }
+      .steps-teaser { padding: 60px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="index.html">Chirie<span>Auto</span></a>
+  <nav>
+    <a href="Pagini/masini.html">Mașini</a>
+    <a href="Pagini/cum-functioneaza.html">Cum Funcționează</a>
+    <a href="Pagini/contact.html">Contact</a>
+    <a href="Pagini/rezervare.html" class="nav-cta">Rezervare</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-badge">🇲🇩 Disponibil în toată Moldova</div>
+    <h2>Închiriază<br>o mașină<br><span>rapid</span> &<br><span>ușor</span></h2>
+    <p>Flotă modernă, prețuri corecte, suport 24/7.<br>De la economice la premium — tot ce ai nevoie.</p>
+    <div class="hero-btns">
+      <a class="btn-primary" href="Pagini/masini.html">Vezi Mașinile</a>
+      <a class="btn-outline" href="Pagini/cum-functioneaza.html">Cum Funcționează</a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=900&q=80" alt="Mașini de lux" />
+  </div>
+</section>
+
+<div class="stats-bar">
+  <div class="stat"><h3>120+</h3><p>Mașini Disponibile</p></div>
+  <div class="stat"><h3>3000+</h3><p>Clienți Mulțumiți</p></div>
+  <div class="stat"><h3>5 ★</h3><p>Rating Mediu</p></div>
+  <div class="stat"><h3>24/7</h3><p>Suport Clienți</p></div>
+  <div class="stat"><h3>8+</h3><p>Ani de Experiență</p></div>
+</div>
+
+<div class="section-title">
+  <div class="section-label">Flotă Selectată</div>
+  <h2>Mașinile Noastre</h2>
+  <p>Alege din colecția noastră variată de autovehicule</p>
+</div>
+
+<div class="cars-grid" id="home-cars-grid"></div>
+
+<div class="steps-teaser">
+  <div class="section-label">Simplu & Rapid</div>
+  <h2>Doar 4 Pași</h2>
+  <p>Procesul nostru simplu de închiriere</p>
+  <div class="steps-row">
+    <div class="step-mini"><div class="step-icon">🔍</div><strong>1. Alege</strong><p>Navighează flota și selectează mașina</p></div>
+    <div class="step-mini"><div class="step-icon">📅</div><strong>2. Rezervă</strong><p>Completează formularul online</p></div>
+    <div class="step-mini"><div class="step-icon">💳</div><strong>3. Confirmă</strong><p>Plătești avansul și primești confirmarea</p></div>
+    <div class="step-mini"><div class="step-icon">🚗</div><strong>4. Preia</strong><p>Vino cu actele și pleacă la drum</p></div>
+  </div>
+  <a class="btn-primary" href="Pagini/cum-functioneaza.html">Detalii Complete</a>
+</div>
+
+<footer>
+  <p>&copy; 2026 <span>ChirieAuto</span>. Toate drepturile rezervate. | Chișinău, Moldova</p>
+</footer>
+
+<script src="cars.js"></script>
+<script>
+  function renderCarsIndex(gridId) {
+    const grid = document.getElementById(gridId);
+    if (!grid) return;
+    grid.innerHTML = cars.map(c => `
+      <a class="car-card" href="Pagini/masina.html?id=${c.id}">
+        <div class="car-photo">
+          <img src="${c.img}" alt="${c.name}" loading="lazy" />
+          <span class="car-badge">${c.badge}</span>
+        </div>
+        <div class="car-body">
+          <h3>${c.name}</h3>
+          <p class="car-tip">${c.type}</p>
+          <div class="car-specs">
+            <span>⛽ ${c.fuel}</span>
+            <span>⚙️ ${c.transmission}</span>
+            <span>👥 ${c.seats} locuri</span>
+          </div>
+          <div class="car-footer">
+            <div class="car-price">${c.price} <small>lei/zi</small></div>
+            <a class="btn-reserve" href="Pagini/rezervare.html?id=${c.id}" onclick="event.stopPropagation()">Rezervă</a>
+          </div>
+        </div>
+      </a>
+    `).join('');
+  }
+  renderCarsIndex('home-cars-grid');
+  document.dispatchEvent(new CustomEvent('carsrendered', { detail: { gridId: 'home-cars-grid' } }));
+</script>
+<script src="site-effects.js"></script>
+</body>
+</html>

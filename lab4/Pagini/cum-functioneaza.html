@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cum Funcționează — ChirieAuto</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    .cum-hero {
+      background: var(--dark);
+      padding: 100px 60px 80px;
+      text-align: center;
+    }
+    .cum-hero h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 4rem;
+      color: white;
+      letter-spacing: 3px;
+      margin-bottom: 16px;
+    }
+    .cum-hero p { color: #aaa; font-size: 1.05rem; max-width: 500px; margin: 0 auto; }
+    .steps-section { background: var(--dark); padding: 0 60px 80px; }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .step {
+      background: #16213e;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 14px;
+      padding: 36px 28px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .step:hover { transform: translateY(-4px); }
+    .step-num { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; color: rgba(230,57,70,0.15); line-height: 1; margin-bottom: 6px; }
+    .step .icon { font-size: 2.4rem; margin-bottom: 14px; }
+    .step h3 { font-size: 1.05rem; font-weight: 700; color: white; margin-bottom: 10px; }
+    .step p { font-size: 0.87rem; color: #aaa; line-height: 1.7; }
+    .requirements-section { background: #f6f7fa; padding: 80px 60px; }
+    .req-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .req-card { background: white; border-radius: 12px; padding: 28px; border: 1px solid #eaeaea; }
+    .req-card .req-icon { font-size: 2rem; margin-bottom: 12px; }
+    .req-card h4 { color: var(--navy); margin-bottom: 8px; font-size: 1rem; }
+    .req-card p { color: #888; font-size: 0.87rem; line-height: 1.6; }
+    .faq-section { padding: 80px 60px; max-width: 800px; margin: 0 auto; }
+    @media (max-width: 900px) {
+      .cum-hero { padding: 60px 20px 50px; }
+      .cum-hero h2 { font-size: 3rem; }
+      .steps-section { padding: 0 20px 60px; }
+      .requirements-section { padding: 60px 20px; }
+      .faq-section { padding: 60px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="../index.html">Chirie<span>Auto</span></a>
+  <nav>
+    <a href="masini.html">Mașini</a>
+    <a href="cum-functioneaza.html" class="active">Cum Funcționează</a>
+    <a href="contact.html">Contact</a>
+    <a href="rezervare.html" class="nav-cta">Rezervare</a>
+  </nav>
+</header>
+
+<div class="cum-hero">
+  <div class="section-label">Ghid Complet</div>
+  <h2>Cum Funcționează?</h2>
+  <p>Procesul nostru de închiriere este simplu, transparent și rapid</p>
+</div>
+
+<div class="steps-section">
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="icon">🔍</div>
+      <h3>Alege Mașina</h3>
+      <p>Răsfoiește colecția noastră completă. Filtrează după categorie, preț sau număr de locuri. Fiecare mașină are poze reale și specificații complete.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="icon">📅</div>
+      <h3>Rezervă Online</h3>
+      <p>Completează formularul de rezervare cu datele tale și perioada dorită. Procesul durează mai puțin de 2 minute.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="icon">💳</div>
+      <h3>Confirmă și Plătește</h3>
+      <p>Primești confirmare pe email în câteva minute. Achită avansul (30%) prin card bancar sau numerar la birou.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <div class="icon">🚗</div>
+      <h3>Preia Mașina</h3>
+      <p>Vino la biroul nostru cu buletinul de identitate și permisul auto. Semnăm contractul și ești pe drum!</p>
+    </div>
+  </div>
+</div>
+
+<div class="requirements-section">
+  <div class="section-title" style="padding-top:0;">
+    <div class="section-label">Condiții</div>
+    <h2>Ce Este Necesar?</h2>
+    <p>Cerințe minime pentru închirierea unui vehicul</p>
+  </div>
+  <div class="req-grid">
+    <div class="req-card"><div class="req-icon">🪪</div><h4>Buletin de Identitate</h4><p>Document de identitate valabil. Vârsta minimă: 21 ani.</p></div>
+    <div class="req-card"><div class="req-icon">🚘</div><h4>Permis Auto</h4><p>Permis valabil, obținut cu cel puțin 2 ani în urmă.</p></div>
+    <div class="req-card"><div class="req-icon">💰</div><h4>Avans (30%)</h4><p>Avans rambursabil la returnarea mașinii în stare bună.</p></div>
+    <div class="req-card"><div class="req-icon">📋</div><h4>Contract</h4><p>Semnarea contractului de închiriere la preluarea mașinii.</p></div>
+  </div>
+</div>
+
+<div class="faq-section">
+  <div class="section-title" style="padding-top:0;">
+    <div class="section-label">Întrebări Frecvente</div>
+    <h2>FAQ</h2>
+  </div>
+  <div id="faq-list"></div>
+</div>
+
+<footer>
+  <p>&copy; 2026 <span>ChirieAuto</span>. Toate drepturile rezervate. | Chișinău, Moldova</p>
+</footer>
+
+<script>
+const faqs = [
+  { q: "Care este vârsta minimă pentru închiriere?", a: "Vârsta minimă este de 21 ani cu permis auto obținut cu cel puțin 2 ani în urmă. Pentru mașinile premium (BMW, Mercedes), vârsta minimă este 25 ani." },
+  { q: "Pot circula în afara Moldovei?", a: "Da, cu acordul nostru prealabil și achitarea unui supplement de 100 lei/zi. Disponibil pentru România, Ucraina și Bulgaria. Contactați-ne pentru detalii." },
+  { q: "Ce se întâmplă dacă mașina are o defecțiune?", a: "Suntem disponibili 24/7. Trimitem imediat asistență rutieră sau vehicul de înlocuire. Toate mașinile sunt acoperite de asigurare completă CASCO." },
+  { q: "Se acceptă carduri bancare?", a: "Da, acceptăm Visa, Mastercard și American Express. Avansul poate fi achitat și în numerar la biroul nostru." },
+  { q: "Pot returna mașina mai devreme?", a: "Da, suma se calculează proporțional cu zilele efectiv folosite, minus o taxă de anulare de 10% din suma totală." },
+  { q: "Este combustibilul inclus în preț?", a: "Nu, combustibilul este pe cheltuiala clientului. Mașina se predă cu rezervorul plin și trebuie returnată la fel." }
+];
+
+document.getElementById('faq-list').innerHTML = faqs.map((f, i) => `
+  <div class="faq-item" id="faq-${i}">
+    <div class="faq-q" onclick="toggleFaq(${i})">${f.q} <span class="faq-arrow">▼</span></div>
+    <div class="faq-a">${f.a}</div>
+  </div>
+`).join('');
+
+function toggleFaq(i) {
+  document.getElementById('faq-' + i).classList.toggle('open');
+}
+</script>
+<script src="../site-effects.js"></script>
+</body>
+</html>

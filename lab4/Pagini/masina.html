@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Detalii Mașină — ChirieAuto</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    .car-detail { max-width: 1100px; margin: 0 auto; padding: 60px 40px; }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: none;
+      border: 1px solid var(--border);
+      color: #555;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      padding: 8px 18px;
+      border-radius: 7px;
+      cursor: pointer;
+      margin-bottom: 40px;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .back-btn:hover { border-color: var(--navy); color: var(--navy); }
+    .car-detail-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 50px;
+      align-items: start;
+    }
+    .car-detail-img {
+      border-radius: 16px;
+      overflow: hidden;
+      height: 380px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+    }
+    .car-detail-img img { width: 100%; height: 100%; object-fit: cover; }
+    .car-extras-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .extra-item {
+      background: #f6f7fa;
+      border-radius: 8px;
+      padding: 12px;
+      text-align: center;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #555;
+    }
+    .car-detail-info h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3rem;
+      color: var(--navy);
+      letter-spacing: 2px;
+      margin-bottom: 6px;
+    }
+    .car-detail-type { color: #999; font-size: 0.95rem; margin-bottom: 24px; }
+    .car-detail-price {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.5rem;
+      color: var(--red);
+      letter-spacing: 1px;
+      margin-bottom: 28px;
+    }
+    .car-detail-price small {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      color: #999;
+    }
+    .specs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .spec-item { background: #f6f7fa; padding: 14px 16px; border-radius: 10px; }
+    .spec-label { font-size: 0.75rem; color: #999; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 4px; }
+    .spec-val { font-size: 0.95rem; color: var(--navy); font-weight: 600; }
+    .detail-desc { color: #666; font-size: 0.95rem; line-height: 1.8; margin-bottom: 30px; }
+    .not-found { text-align: center; padding: 100px 40px; color: #999; }
+    .not-found h2 { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; color: var(--navy); margin-bottom: 16px; }
+    @media (max-width: 900px) {
+      .car-detail-grid { grid-template-columns: 1fr; }
+      .car-detail { padding: 40px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="../index.html">Chirie<span>Auto</span></a>
+  <nav>
+    <a href="masini.html" class="active">Mașini</a>
+    <a href="cum-functioneaza.html">Cum Funcționează</a>
+    <a href="contact.html">Contact</a>
+    <a href="rezervare.html" class="nav-cta">Rezervare</a>
+  </nav>
+</header>
+
+<div class="car-detail" id="car-detail-content"></div>
+
+<footer>
+  <p>&copy; 2026 <span>ChirieAuto</span>. Toate drepturile rezervate. | Chișinău, Moldova</p>
+</footer>
+
+<script src="../cars.js"></script>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const id = parseInt(params.get('id'));
+  const c = cars.find(x => x.id === id);
+  const content = document.getElementById('car-detail-content');
+
+  if (!c) {
+    content.innerHTML = `
+      <div class="not-found">
+        <h2>Mașina nu a fost găsită</h2>
+        <p>Te rugăm să revii la lista de mașini.</p>
+        <a class="btn-primary" href="masini.html" style="margin-top:20px;">Vezi Toate Mașinile</a>
+      </div>
+    `;
+  } else {
+    document.title = `${c.name} — ChirieAuto`;
+    content.innerHTML = `
+      <a class="back-btn" href="masini.html">← Înapoi la Mașini</a>
+      <div class="car-detail-grid">
+        <div>
+          <div class="car-detail-img">
+            <img src="${c.img.replace('w=600', 'w=900')}" alt="${c.name}" />
+          </div>
+          <div class="car-extras-grid">
+            ${c.extras.map(e => `<div class="extra-item">✓ ${e}</div>`).join('')}
+          </div>
+        </div>
+        <div class="car-detail-info">
+          <div class="car-badge" style="position:static;display:inline-block;margin-bottom:12px;">${c.badge}</div>
+          <h1>${c.name}</h1>
+          <p class="car-detail-type">${c.type}</p>
+          <div class="car-detail-price">${c.price} <small>lei / zi</small></div>
+          <div class="specs-grid">
+            <div class="spec-item"><div class="spec-label">Combustibil</div><div class="spec-val">${c.fuel}</div></div>
+            <div class="spec-item"><div class="spec-label">Transmisie</div><div class="spec-val">${c.transmission}</div></div>
+            <div class="spec-item"><div class="spec-label">Locuri</div><div class="spec-val">${c.seats} persoane</div></div>
+            <div class="spec-item"><div class="spec-label">Categorie</div><div class="spec-val">${c.badge}</div></div>
+          </div>
+          <p class="detail-desc">${c.desc}</p>
+          <a class="btn-primary" href="rezervare.html?id=${c.id}" style="width:100%;display:block;text-align:center;padding:15px;font-size:1rem;">🚗 Rezervă Această Mașină</a>
+        </div>
+      </div>
+    `;
+  }
+</script>
+<script src="../site-effects.js"></script>
+</body>
+</html>

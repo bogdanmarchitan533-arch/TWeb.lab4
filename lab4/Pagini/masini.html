@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mașini — ChirieAuto</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    .page-hero {
+      background: var(--dark);
+      padding: 60px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .page-hero h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.5rem;
+      color: white;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+    .page-hero p { color: #aaa; font-size: 1rem; }
+    .filter-bar {
+      background: #f6f7fa;
+      padding: 20px 60px;
+      border-bottom: 1px solid #e8e8e8;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .filter-bar span {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-right: 8px;
+    }
+    @media (max-width: 900px) {
+      .page-hero { padding: 40px 20px; }
+      .filter-bar { padding: 16px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="../index.html">Chirie<span>Auto</span></a>
+  <nav>
+    <a href="masini.html" class="active">Mașini</a>
+    <a href="cum-functioneaza.html">Cum Funcționează</a>
+    <a href="contact.html">Contact</a>
+    <a href="rezervare.html" class="nav-cta">Rezervare</a>
+  </nav>
+</header>
+
+<div class="page-hero">
+  <div class="section-label">Flotă Completă</div>
+  <h2>Mașinile Noastre</h2>
+  <p>Alege mașina perfectă pentru nevoile tale</p>
+</div>
+
+<div class="filter-bar">
+  <span>Filtrează:</span>
+  <button class="filter-btn active" onclick="filterCars('all', this)">Toate</button>
+  <button class="filter-btn" onclick="filterCars('economic', this)">Economice</button>
+  <button class="filter-btn" onclick="filterCars('confort', this)">Confort</button>
+  <button class="filter-btn" onclick="filterCars('premium', this)">Premium</button>
+  <button class="filter-btn" onclick="filterCars('van', this)">Van / SUV</button>
+</div>
+
+<div class="cars-grid" id="masini-grid" style="padding-top:50px;"></div>
+
+<footer>
+  <p>&copy; 2026 <span>ChirieAuto</span>. Toate drepturile rezervate. | Chișinău, Moldova</p>
+</footer>
+
+<script src="../cars.js"></script>
+<script>
+  renderCars('masini-grid');
+
+  function filterCars(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderCars('masini-grid', cat === 'all' ? null : c => c.category === cat);
+  }
+</script>
+<script src="../site-effects.js"></script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rezervare — ChirieAuto</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    #page-rezervare {
+      background: #f6f7fa;
+      min-height: 100vh;
+      padding: 80px 40px;
+    }
+    .rezervare-wrapper {
+      max-width: 640px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 20px;
+      padding: 50px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.07);
+      border: 1px solid var(--border);
+    }
+    .rezervare-wrapper h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.5rem;
+      color: var(--navy);
+      letter-spacing: 2px;
+      margin-bottom: 6px;
+    }
+    .rezervare-wrapper > p { color: #999; margin-bottom: 36px; font-size: 0.95rem; }
+    .total-box {
+      background: #f6f7fa;
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin: 24px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid #eaeaea;
+    }
+    .total-box span { font-size: 0.9rem; color: #777; }
+    .total-box strong {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      color: var(--red);
+      letter-spacing: 1px;
+    }
+    @media (max-width: 700px) {
+      #page-rezervare { padding: 40px 16px; }
+      .rezervare-wrapper { padding: 30px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="../index.html">Chirie<span>Auto</span></a>
+  <nav>
+    <a href="masini.html">Mașini</a>
+    <a href="cum-functioneaza.html">Cum Funcționează</a>
+    <a href="contact.html">Contact</a>
+    <a href="rezervare.html" class="nav-cta active">Rezervare</a>
+  </nav>
+</header>
+
+<div id="page-rezervare">
+  <div class="rezervare-wrapper">
+    <h2>Rezervare Rapidă</h2>
+    <p>Completează formularul și te contactăm în cel mai scurt timp posibil</p>
+
+    <div id="rezervare-errors" class="form-errors" role="alert"></div>
+
+    <form id="form-rezervare" action="../php/rezervare.php" method="post" novalidate>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="rez-nume">Nume</label>
+          <input type="text" id="rez-nume" name="nume" required autocomplete="family-name" placeholder="Ex: Popescu" />
+        </div>
+        <div class="form-group">
+          <label for="rez-prenume">Prenume</label>
+          <input type="text" id="rez-prenume" name="prenume" required autocomplete="given-name" placeholder="Ex: Ion" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="rez-telefon">Telefon</label>
+          <input type="tel" id="rez-telefon" name="telefon" required autocomplete="tel" placeholder="+373 69 123 456" />
+        </div>
+        <div class="form-group">
+          <label for="rez-email">Email</label>
+          <input type="email" id="rez-email" name="email" required autocomplete="email" placeholder="ion@gmail.com" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="rez-masina">Mașina Dorită</label>
+        <select id="rez-masina" name="masina" required>
+          <option value="">-- Se încarcă lista --</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="rez-start">Data Ridicării</label>
+          <input type="date" id="rez-start" name="data_start" required />
+        </div>
+        <div class="form-group">
+          <label for="rez-end">Data Returnării</label>
+          <input type="date" id="rez-end" name="data_end" required />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="rez-loc">Locul Ridicării</label>
+        <select id="rez-loc" name="loc_ridicare">
+          <option value="central" data-extra="0">Biroul Central — Str. Ștefan cel Mare 10, Chișinău</option>
+          <option value="aeroport" data-extra="0">Aeroport Chișinău</option>
+          <option value="gara" data-extra="0">Gara Feroviară</option>
+          <option value="livrare" data-extra="200">Livrare la adresă (+200 lei)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="rez-obs">Observații (opțional)</label>
+        <textarea id="rez-obs" name="observatii" rows="4" placeholder="Ex: Doresc scaun auto pentru copil, GPS etc."></textarea>
+      </div>
+
+      <div class="total-box" id="total-box" style="display:none;">
+        <span>Total estimat:</span>
+        <strong id="total-val">0 lei</strong>
+      </div>
+
+      <button type="submit" class="submit-btn">✉️ Trimite Rezervarea</button>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2026 <span>ChirieAuto</span>. Toate drepturile rezervate. | Chișinău, Moldova</p>
+</footer>
+
+<script src="../cars.js"></script>
+<script src="../rezervare-form.js"></script>
+<script src="../site-effects.js"></script>
+</body>
+</html>
